@@ -179,3 +179,33 @@
   });
 
 })(jQuery);
+
+  fetch('https://obscure-retreat-73939.herokuapp.com/rawaa')
+  .then(response => response.json())
+  .then(json => {
+      console.log("bye")
+      console.log(json)
+      console.log(json.length)
+
+   // var selectlists =  document.getElementsByClassName('button');
+    var mainul = document.getElementById('mainul');
+    let option;
+    for (let i = 0; i < json.length; i++) {
+      var x =`<div class="col-lg-4 col-md-6 icon-box">
+              <div class="icon"><i class="bi bi-`+json[i].icon+`"></i></div>
+              <h4 class="title"><a href="">`+json[i].name+`</a></h4>
+              <p class="description">`+json[i].role+`</p>
+              </div>`
+      // var x =`<div class="card" style="width: 18rem;">`+`
+      // <img src=`+json[i].image+` class="card-img-top" alt="...">
+      // <div class="card-body">
+      // <h5 class="card-title">`+json[i].name+`</h5>
+      // <p class="card-text">`+json[i].role+`</p>
+      // </div>
+      // </div> `
+      var mydiv= document.createElement('div')
+      mydiv.innerHTML= x;
+      rawaa.appendChild(mydiv);    
+     
+     }
+     })
