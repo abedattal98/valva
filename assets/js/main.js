@@ -203,9 +203,24 @@
       // <p class="card-text">`+json[i].role+`</p>
       // </div>
       // </div> `
+      
       var mydiv= document.createElement('div')
       mydiv.innerHTML= x;
-      rawaa.appendChild(mydiv);    
-     
+      rawaa.appendChild(mydiv);  
      }
+     for (let i = 0;i < json.length; i++){
+      var y = ` <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
+      <div class="card">
+        <img src="`+json[i].image+`" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title"><a href="`+json[i].image+`">`+json[i].name+`</a></h5>
+          <p class="card-text">`+json[i].role+`</p>
+          <a href="#" class="btn">Explore more</a>
+        </div>
+      </div>
+    </div>`
+      var rawaa2= document.getElementById('rawaa2')
+      rawaa2.innerHTML= rawaa2.innerHTML + y;
+       }
      })
+     
