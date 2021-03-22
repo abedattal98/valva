@@ -197,9 +197,8 @@
       // </div>
       // </div> `
       
-      var mydiv= document.createElement('div')
-      mydiv.innerHTML= x;
-      rawaa.appendChild(mydiv);  
+      var rawaa= document.getElementById('rawaa')
+      rawaa.innerHTML= rawaa.innerHTML + x; 
      }
      for (let i = 0;i < json.length; i++){
       var y = ` <div class="col-lg-4 col-md-6 d-flex align-items-stretch mb-5 mb-lg-0">
