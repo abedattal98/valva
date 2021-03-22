@@ -141,12 +141,7 @@
   });
 
   // Testimonials carousel (uses the Owl Carousel library)
-  $(".testimonials-carousel").owlCarousel({
-    autoplay: true,
-    dots: true,
-    loop: true,
-    items: 1
-  });
+
 
   // Porfolio isotope and filter
   $(window).on('load', function() {
@@ -187,9 +182,7 @@
       console.log(json)
       console.log(json.length)
 
-   // var selectlists =  document.getElementsByClassName('button');
-    var mainul = document.getElementById('mainul');
-    let option;
+
     for (let i = 0; i < json.length; i++) {
       var x =`<div class="col-lg-4 col-md-6 icon-box">
               <div class="icon"><i class="bi bi-`+json[i].icon+`"></i></div>
@@ -223,4 +216,33 @@
       rawaa2.innerHTML= rawaa2.innerHTML + y;
        }
      })
-     
+  fetch('https://obscure-retreat-73939.herokuapp.com/testimg')
+  .then(response => response.json())
+  .then(json => {
+      console.log("bye")
+      console.log(json)
+      console.log(json.length)
+
+
+    for (let i = 0; i < json.length; i++) {
+
+     var z = `<div class="testimonial-item">
+            <img src="`+json[i].image+`" class="testimonial-img" alt="">
+            <h3>`+json[i].name+`</h3>
+            <h4>`+json[i].role+`</h4>
+            <p>
+              <i class="bx bxs-quote-alt-left quote-icon-left"></i>
+              `+json[i].quote+`
+              <i class="bx bxs-quote-alt-right quote-icon-right"></i>
+            </p>
+          </div>`
+      var testimg= document.getElementById('testimg')
+     testimg.innerHTML= testimg.innerHTML + z;
+    }
+    $(".testimonials-carousel").owlCarousel({
+      autoplay: true,
+      dots: true,
+      loop: true,
+      items: 1
+    });
+  })
